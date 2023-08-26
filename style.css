@@ -1,0 +1,18 @@
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 960px;
+    height: 960px;
+    outline:solid red;
+}
+
+.square {
+    flex: 1;
+    padding: 50px;
+    outline:solid black;
+}
+
+button {
+    height: 30px;
+    width: 100px;
+}
