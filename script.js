@@ -8,9 +8,12 @@ function generate(){
 
     let input = prompt("Please enter a side value (limit: 100):");
 
-    while (input > 100){
-        let input = prompt("Please enter another side value (limit: 100):");
+    if(input > 100 || input < 0){
+    do {
+        input = prompt("Please enter another side value (limit: 100):");
     }
+    while (input > 100 && input < 0);
+    }   
 
     for(let i = 1; i <= input * input; i++){
         let square = document.createElement("div");
