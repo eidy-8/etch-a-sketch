@@ -3,6 +3,14 @@ function changeBlack(event){
     square.style.backgroundColor = "black";
 }
 
+function rgb(event){
+    
+}
+
+function erase(event){
+
+}
+
 function generate(){
     container.innerHTML = "";
 
@@ -10,9 +18,9 @@ function generate(){
 
     if(input > 100 || input < 0){
     do {
-        input = prompt("Please enter another side value (limit: 100):");
+        input = prompt("Invalid value! Please enter another side value (limit: 100):");
     }
-    while (input > 100 && input < 0);
+    while (input > 100 || input < 0);
     }   
 
     for(let i = 1; i <= input * input; i++){
@@ -27,8 +35,14 @@ function generate(){
     }
 }
 
-const btn = document.querySelector("#btn");
-btn.addEventListener("click", generate);
+const btn1 = document.querySelector("#btn1");
+btn1.addEventListener("click", generate);
+
+const btn2 = document.querySelector('#btn2');
+btn2.addEventListener("click", rgb);
+
+const btn3 = document.querySelector('#btn3');
+btn3.addEventListener("click", erase);
 
 
 

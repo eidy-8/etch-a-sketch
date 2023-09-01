@@ -9,8 +9,15 @@
 
 button {
     display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 20%;
     height: 50px;
     width: 100px;
-    margin: auto;
+}
+
+div.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px;
 }
