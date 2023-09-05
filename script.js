@@ -13,7 +13,7 @@ function colorChanger(){
 
 function rgb(event){
     let square = event.target;
-    square.style.backgroundColor = colorChanger();
+    currentInkColor = colorChanger();
 }
 
 function erase(){
@@ -40,7 +40,7 @@ function generateGrid(){
         let percent = 100/(input);
         square.setAttribute("style", `height: ${percent}%; width: ${percent}%; outline:solid;`);   
     
-        square.addEventListener("mouseover", rgb);
+        square.addEventListener("mouseover", changeColor);
 
         container.appendChild(square);
     }
