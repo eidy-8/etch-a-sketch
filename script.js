@@ -3,17 +3,13 @@ function changeColor(event){
     square.style.backgroundColor = currentInkColor;
 }
 
-function colorChanger(){
+function rgb(event){
+    let square = event.target;
+    let verificar = true;
     const randomInt1 = Math.floor(Math.random() * 255);
     const randomInt2 = Math.floor(Math.random() * 255);
     const randomInt3 = Math.floor(Math.random() * 255);
     currentInkColor = `rgb(${randomInt1}, ${randomInt2}, ${randomInt3})`;
-    return currentInkColor;
-}
-
-function rgb(event){
-    let square = event.target;
-    currentInkColor = colorChanger();
 }
 
 function erase(){
@@ -24,7 +20,7 @@ function erase(){
 function generateGrid(){
     container.innerHTML = "";
 
-    let input = prompt("Please enter a side value (limit: 100):");
+    let input = prompt("Please enter a side value (limit: 100):"); 
 
     if(input > 100 || input < 0){
         do {
@@ -42,14 +38,21 @@ function generateGrid(){
     
         square.addEventListener("mouseover", changeColor);
 
+        if (verificar == true){
+            square.addEventListener("mouseover", rgb);
+        }
+
+        console.log(btn2);
+
         container.appendChild(square);
     }
 }
 
 let currentInkColor = "black"; //This is the default color
+let verificar = false; 
 
 const btn1 = document.querySelector("#btn1");
-const btn2 = document.querySelector('#btn2');
+let btn2 = document.querySelector('#btn2');
 const btn3 = document.querySelector('#btn3');
 
 btn1.addEventListener("click", generateGrid);
