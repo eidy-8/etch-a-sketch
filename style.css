@@ -1,10 +1,16 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #container {
     display: flex;
     flex-wrap: wrap;
     width: 960px;
     height: 960px;
     margin: auto;
-    outline-style: solid;
+    box-shadow: 0 6px 20px 0;
 }
 
 button {
@@ -14,10 +20,27 @@ button {
     border-radius: 20%;
     height: 50px;
     width: 100px;
+    border: none;
+    background-color: rgb(230, 230, 230);
+    margin: 10px;
+}
+
+#btn1:hover,
+#btn4:hover {
+    background-color: rgb(175, 175, 175);
+}
+
+#btn2,
+#btn3 {
+    background-color: red;
 }
 
 div.buttons {
     display: flex;
-    justify-content: space-evenly;
-    margin: 10px;
+    flex-direction: column;
+}
+
+input[type="range"] {
+    width: 80%;
+    margin: 5px auto;
 }
