@@ -39,8 +39,3 @@ div.buttons {
     display: flex;
     flex-direction: column;
 }
-
-input[type="range"] {
-    width: 80%;
-    margin: 5px auto;
-}
