@@ -8,22 +8,6 @@ function changeColor(event){
     if(verificar3) {
         square.style.backgroundColor = "";
     }
-
-    if(verificar5) {
-        const redInput = document.getElementById("red");
-        const greenInput = document.getElementById("green");
-        const blueInput = document.getElementById("blue");
-        const previewColor = document.querySelector(".color-preview");
-        const applyButton = document.getElementById("btn5");
-        
-        const red = redInput.value;
-        const green = greenInput.value;
-        const blue = blueInput.value;
-        square.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-
-
-        btn5.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-    }
 }
 
 function rainbow(){
@@ -64,13 +48,6 @@ function generateGrid(){
     }
 }
 
-function updateColorPreview() {
-    const red = redInput.value;
-    const green = greenInput.value;
-    const blue = blueInput.value;
-    previewColor.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-}
-
 let isDrawing = false; // Flag to track if the mouse button is held down
 
 function startDrawing(event) {
@@ -89,42 +66,46 @@ function drawWhileMouseMoving(event) {
     }
 }
 
-let currentInkColor = "black"; //This is the default color
+container.addEventListener("mouseleave", () => { // Avoid drawing after leaving container
+    if (isDrawing) {
+        isDrawing = false;
+    }
+});
+
+let currentInkColor = "black";
 let verificar2 = false; 
 let verificar3 = false;
-let verificar5 = false;
 
 const btn1 = document.querySelector("#btn1");
 const btn2 = document.querySelector('#btn2');
 const btn3 = document.querySelector('#btn3');
 const btn4 = document.querySelector('#btn4');
-const btn5 = document.querySelector('#btn5');
 
 btn1.addEventListener("click", generateGrid);
 
 btn2.addEventListener("click", () => {
     verificar2 = !verificar2;
-    if (verificar2 == true) {
-        btn2.style.backgroundColor = "green";
-    } else {
+    verificar3 = false;
+    btn2.style.backgroundColor = "green";
+    btn3.style.backgroundColor = "red";
+
+    if (verificar2 == false) {
         btn2.style.backgroundColor = "red";
     }
 });
 
 btn3.addEventListener("click", () => {
     verificar3 = !verificar3;
-    if (verificar3 == true) {
-        btn3.style.backgroundColor = "green";
-    } else {
+    verificar2 = false;
+    btn2.style.backgroundColor = "red";
+    btn3.style.backgroundColor = "green";
+
+    if (verificar3 == false) {
         btn3.style.backgroundColor = "red";
     }
 });
 
 btn4.addEventListener("click", eraseAll);
-
-btn5.addEventListener("click", () => {
-    verificar5 = !verificar5;
-});
 
 
 
